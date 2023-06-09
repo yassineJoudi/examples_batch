@@ -1,0 +1,9 @@
+services:
+  examples_batch.batch.manager:
+    class: Drupal\examples_batch\Service\batchManager
+  examples_batch.commands:
+    class: Drupal\examples_batch\Commands\batchCommands
+    tags:
+      - { name: drush.command }
+    arguments: ['@entity_type.manager', '@logger.factory', '@examples_batch.batch.manager']
+  
